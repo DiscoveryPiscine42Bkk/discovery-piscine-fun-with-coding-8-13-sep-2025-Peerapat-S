@@ -1,7 +1,7 @@
 body {
     text-align: center;
     font-family: monospace;
-    background-color:#cbffd4 ; 
+    background-color:whitesmoke ; 
 }
 p {
     font-size: 50;
@@ -34,7 +34,7 @@ h3 {
 .butt {
     margin-top: 5px;
     padding: 5px;
-	background-color:rgb(255, 124, 124);
+	background-color:black;
 	color:white;
     height: 20px;
     cursor: pointer;
@@ -45,7 +45,7 @@ h3 {
 }
 .butt:hover {
     animation : background-bg 1s infinite ; 
-    color: black;
+    color: red;
 }
 .butt:active {
 	position:relative;
