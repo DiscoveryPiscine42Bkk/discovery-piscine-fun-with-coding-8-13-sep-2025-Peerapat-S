@@ -4,7 +4,7 @@ body, html {
     padding: 0;
 }
 .top {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Vue_de_nuit_de_la_Place_Stanislas_%C3%A0_Nancy.jpg/1200px-Vue_de_nuit_de_la_Place_Stanislas_%C3%A0_Nancy.jpg");
+    background-image: url("https://i.pinimg.com/736x/92/38/3e/92383e842d9985581a4bb4881fbbfc41.jpg");
     height: 100%;
     background-position: center;
     background-size: cover;
@@ -21,7 +21,7 @@ body, html {
     color: white;
 }
 .bot {
-    background-image: url("https://admin.expatica.com/uk/wp-content/uploads/sites/10/2023/11/best-place-to-live-in-uk-1536x1024.jpg");
+    background-image: url("https://i.pinimg.com/736x/84/a2/ab/84a2abf7b1934c0fe9d9a6ae62780c40.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
