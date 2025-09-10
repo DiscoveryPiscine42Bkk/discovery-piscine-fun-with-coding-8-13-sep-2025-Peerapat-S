@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- โหลด jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            // ฟังก์ชันตรวจสอบตัวเลขล้วน
+            function OnlyNumbers(str) {
+                return /^[0-9]+$/.test(str);
+            }
+
+            // ฟังก์ชันคำนวณ
+            function calculate() {
+                let number1 = $("#Num_1").val();
+                let number2 = $("#Num_2").val();
+                let operator = $("#operator").val();
+
+                if (operator === "Choose") {
+                    alert("Please select an operator");
+                }
+                else if (OnlyNumbers(number1) && OnlyNumbers(number2)) {
+                    if (parseInt(number1) < 0 || parseInt(number2) < 0) {
+                        alert("Error :(");
+                    } 
+                    else if ((operator === "%" || operator === "/") && number2 == 0) {
+                        alert("It's over 9000!");
+                        console.log("It's over 9000!");
+                    }
+                    else {
+                        let result = eval(number1 + operator + number2);
+                        alert(result);
+                        console.log(result);
+                    }
+                } 
+                else {
+                    alert("Error :(");
+                }
+            }
+
+            // ผูกปุ่มกับฟังก์ชัน calculate
+            $("#calculateBtn").click(function(e){
+                e.preventDefault(); // ป้องกัน form submit
+                calculate();
+            });
+
+            // ฟังก์ชันแจ้งเตือนหลัง 30 วินาที
+            setTimeout(function(){
+                alert("Please, use me...");
+            }, 30000);
+
+        });
+    </script>
+</head>
+<body>
+    <center>
+        <div style="padding-top: 20%;">
+            <input id="Num_1" placeholder="Number 1"/>
+            <select id="operator">
+                <option value="Choose">Choose</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            <input id="Num_2" placeholder="Number 2"/>
+            <button id="calculateBtn">Try me!</button>
+        </div>
+    </center>
+</body>
+</html>

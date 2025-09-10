@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0 ;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .ballon {
+            width : 200px;
+            height : 200px;
+            border-radius: 50%;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+    <!-- โหลด jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // forward
+        function change_color($e){
+            if($e.css("background-color") === "rgb(255, 0, 0)") $e.css("background-color","green");
+            else if ($e.css("background-color") === "rgb(0, 128, 0)") $e.css("background-color","blue");
+            else $e.css("background-color","red");
+        }
+
+        // reverse
+        function inv_color($e){
+            if($e.css("background-color") === "rgb(0, 0, 255)") $e.css("background-color","green");
+            else if ($e.css("background-color") === "rgb(0, 128, 0)") $e.css("background-color","red");
+            else $e.css("background-color","blue");
+        }
+
+        // คลิก: ขยาย + เปลี่ยนสี
+        function main($e){
+            change_color($e);
+            if ($e.width() < 420){
+                $e.width($e.width() + 10);
+                $e.height($e.height() + 10);
+                console.log($e.width());
+            }
+            else {
+                $e.width(200);
+                $e.height(200);
+                console.log("reset");
+                console.log($e.width());
+            }
+        }
+
+        // mouseleave: หด + เปลี่ยนสีถอยหลัง
+        function fab($e){
+            if($e.width() > 200){
+                inv_color($e);
+                $e.width($e.width() - 5);
+                $e.height($e.height() - 5);
+                console.log($e.width());
+            }
+        }
+
+        // รอ DOM โหลดเสร็จแล้ว bind event
+        $(document).ready(function(){
+            $(".ballon").on("click", function(){
+                main($(this));
+            });
+            $(".ballon").on("mouseleave", function(){
+                fab($(this));
+            });
+        });
+    </script>
+</head>
+<body>
+    <div style="transform:translate(-50%,-50%)">
+        <div class="ballon"></div>
+    </div>
+</body>
+</html>

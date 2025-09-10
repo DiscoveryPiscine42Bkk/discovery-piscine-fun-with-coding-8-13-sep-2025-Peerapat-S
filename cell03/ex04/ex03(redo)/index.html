@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do or not to do</title>
+    <style>
+        .todo{
+            cursor: pointer;
+            padding-top: 10px;
+        }
+    </style>
+    <!-- โหลด jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <center style="padding-top: 20%;">
+        <button id="newBtn">New</button>
+        <div id="ft_list"></div>
+    </center>
+
+    <script>
+        $(document).ready(function(){
+
+            // โหลด To-Do จาก cookie
+            let saved = getCookie("todos");
+            if(saved){
+                let todos = JSON.parse(saved);
+                todos.forEach(text => addTodo(text, false));
+            }
+
+            // คลิกปุ่ม New
+            $("#newBtn").click(function(){
+                let text = prompt("Enter new TO DO:");
+                if(text && text.trim() !== ""){
+                    addTodo(text.trim(), true);
+                }
+            });
+
+            // ฟังก์ชันเพิ่ม To-Do
+            function addTodo(text, save){
+                let $div = $("<div></div>").addClass("todo").text(text);
+
+                // คลิกลบ To-Do
+                $div.click(function(){
+                    if(confirm("Do you want to remove this TO DO?")){
+                        $div.remove();
+                        saveTodos();
+                    }
+                });
+
+                // แทรกตัวแรก
+                $("#ft_list").prepend($div);
+
+                if(save) saveTodos();
+            }
+
+            // บันทึก To-Do ลง cookie
+            function saveTodos(){
+                let todos = [];
+                $("#ft_list").children().each(function(){
+                    todos.push($(this).text());
+                });
+                setCookie("todos", JSON.stringify(todos), 7);
+            }
+
+            // ตั้งค่า cookie
+            function setCookie(name, value, days){
+                let d = new Date();
+                d.setTime(d.getTime() + (days*24*60*60*1000));
+                let expires = "expires="+ d.toUTCString();
+                document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            }
+
+            // อ่าน cookie
+            function getCookie(name){
+                let cname = name + "=";
+                let decoded = decodeURIComponent(document.cookie);
+                let ca = decoded.split(';');
+                for(let c of ca){
+                    while(c.charAt(0) === ' ') c = c.substring(1);
+                    if(c.indexOf(cname) === 0){
+                        return c.substring(cname.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+        });
+    </script>
+</body>
+</html>
