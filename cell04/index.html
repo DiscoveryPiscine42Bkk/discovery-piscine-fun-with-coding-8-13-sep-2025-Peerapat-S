@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Sidebar Nav</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Foundation CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.9.0/css/foundation.min.css">
+
+<!-- Font Awesome 4.7 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<style>
+    body {
+        scroll-behavior: smooth;
+    }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 60px;
+        background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        transition: width 0.3s;
+    }
+    .sidebar:hover {
+        width: 200px;
+    }
+    .sidebar a {
+        text-decoration: none;
+        color: #333;
+        width: 100%;
+        padding: 15px 10px;
+        text-align: center;
+        transition: background 0.3s;
+        display: flex;
+        align-items: center;
+    }
+    .sidebar a.active, .sidebar a:hover {
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 10px;
+    }
+    .sidebar a i {
+        font-size: 20px;
+        margin-right: 10px;
+        width: 30px;
+        text-align: center;
+    }
+    .sidebar a span {
+        display: none;
+    }
+    .sidebar:hover a span {
+        display: inline;
+    }
+    main {
+        margin-left: 60px;
+        transition: margin-left 0.3s;
+        padding: 20px;
+    }
+    .sidebar:hover ~ main {
+        margin-left: 200px;
+    }
+    .section {
+        padding: 100px 20px;
+    }
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <a href="#about" class="active"><i class="fa fa-user"></i> <span>About</span></a>
+    <a href="#experience"><i class="fa fa-briefcase"></i> <span>Experience</span></a>
+    <a href="#contact"><i class="fa fa-envelope"></i> <span>Contact</span></a>
+</div>
+
+<!-- Main Content -->
+<main>
+    <section id="about" class="section bg-light text-center">
+        <img src="https://i.pinimg.com/736x/2d/a7/ae/2da7ae8ee91707db3472859a7b273c1f.jpg" alt="Profile Photo" class="rounded-circle mb-3">
+        <h1>Peerapat Sonpong</h1>
+        <h3 style="color: grey;">Web Devoloper</h3>
+    </section>
+
+    <section id="experience" class="section">
+        <h2 style="text-align: center;" >Experience & Skills</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Professional Experience</h4>
+                <ul>
+                    <li>แปป</li>
+                    <li>แปป</li>
+                </ul>
+            </div>
+            <br>
+            <div class="col-md-6">
+                <h4>Skills</h4>
+                <ul>
+                    <li>แปป</li>
+                    <li>แปป</li>
+                    <li>แปป</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section bg-light text-center">
+        <h2>Contact Me</h2>
+        <p>Email: 67070121@kmitl.ac.th</p>
+        <p>Phone: 0980122701</p>
+        <p>
+            <a href="https://www.linkedin.com/in/peerapat-sonpong-24748b324/" class="btn btn-primary"><i class="fa fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/DiscoveryPiscine42Bkk/discovery-piscine-fun-with-coding-8-13-sep-2025-Peerapat-S" class="btn btn-success"><i class="fa fa-github"></i> GitHub</a>
+        </p>
+    </section>
+</main>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
